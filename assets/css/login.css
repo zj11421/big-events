@@ -40,6 +40,6 @@ html,body{
 .layui-input{
     padding-left: 40px;
 }
-#loginForm{
+#registerForm{
     display: none;
 }

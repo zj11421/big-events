@@ -7,6 +7,9 @@ $(function(){
         uname:[/^[\S]{6,8}$/, '用户名必须是6-8位字符'],
         //密码必须是6位数字
         pwd:function(value,item){
+            // 形参value标书对应输入域的值
+            // item表示DOM元素
+            // 验证6位数字
             var reg=/^\d{6}$/
             if(!reg.test(value)){
                 return '密码必须是6位数字'
@@ -32,7 +35,26 @@ $(function(){
                 if(res.status===0){
                     // 把登陆成功的标志存储在客户端
                     localStorage.setItem('mytoken',res.token)
-                    // location.href='./index.html'
+                    location.href='./index.html'
+                }
+            }
+        })
+    })
+
+    // 控制注册表单的提交
+    $('#registerForm').submit(function(e){
+        e.preventDefault()
+        // 获取表单数据(表单输入域必须提供name属性，值必须和接口文档一致)
+        var formData=$(this).serialize()
+        // 调用接口进行注册
+        $.ajax({
+            type:'post',
+            url:'http://ajax.frontend.itheima.net/api/reguser',
+            data:formData,
+            success:function(res){
+                if(res.status===0){
+                    // 注册成功，显示登陆框
+                    $('#registerForm a').click()
                 }
             }
         })
@@ -40,13 +62,13 @@ $(function(){
 
     // 登录表单的底部链接
     $('#loginForm a').click(function(){
-        $('#loginform').hide()
+        $('#loginForm').hide()
         $('#registerForm').show()
     })
     // 注册表单的底部链接
     $('#registerForm a').click(function(){
         // 点击后切换表单的现实和隐藏
-        $('#loginform').show()
+        $('#loginForm').show()
         $('#registerForm').hide()
     })
 })
