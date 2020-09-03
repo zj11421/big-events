@@ -13,8 +13,8 @@ $(function(){
             }
         }
     })
-    //控制表单元素
-    $('.layui-form').submit(function(e){
+    //控制登陆表单元素
+    $('#loginForm').submit(function(e){
         // 组织表单默认行为
         e.preventDefault()
         // 获取表单输入域的用户名和密码
@@ -30,7 +30,9 @@ $(function(){
                 // console.log(res)
                 // 登录成功后，跳转到主页面
                 if(res.status===0){
-                    location.href='./index.html'
+                    // 把登陆成功的标志存储在客户端
+                    localStorage.setItem('mytoken',res.token)
+                    // location.href='./index.html'
                 }
             }
         })
