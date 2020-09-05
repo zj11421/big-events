@@ -19,8 +19,9 @@
     <!-- 导航栏右侧菜单区域 -->
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
-        <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+        <a href="javascript:;" class="welcome">
+            <div>L</div>
+          <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
           贤心
         </a>
         <dl class="layui-nav-child">
@@ -38,9 +39,15 @@
   <!-- 左侧菜单 -->
   <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
+        <!-- 顶部欢迎语 -->
+        <a class="welcome" href="javascript:;">
+            <div>L</div>
+            <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
+            <span>欢迎 XXX </span>
+        </a>
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-this"><span class="iconfont icon-home"></span>首页</li>
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test" lay-shrink="all">
+        <li class="layui-nav-item layui-this"><a href=""><span class="iconfont icon-home"></span>首页</li></a>
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;"><span class="iconfont icon-16"></span>文章管理</a>
           <dl class="layui-nav-child">
