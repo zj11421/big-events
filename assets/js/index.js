@@ -38,4 +38,17 @@ $(function(){
         })
     }
     loadUserInfo()
+
+    // 绑定退出按钮的点击事件
+    $('#logout-btn').click(function(){
+        layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){
+        //实现退出功能:跳转到登陆页面，删除数据
+            localStorage.removeItem('mytoken')
+        // 关闭弹窗
+        layer.close(index)
+        // 跳转到登陆页面
+        location.href='./login.html'
+    });
+    })
+    
 })
