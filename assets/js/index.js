@@ -1,6 +1,6 @@
 $(function(){
     // 判断token是否存在
-    localStorage.getItem('mytoken')
+    var mytoken=localStorage.getItem('mytoken')
     if(!mytoken){
         // token不存在，跳转到登陆页面
         location.href='./login.html'
@@ -11,6 +11,7 @@ $(function(){
             type:'get',
             url:'http://ajax.frontend.itheima.net/my/userinfo',
             headers:{
+                //凡是以my开头的请求都需要携带请求头，作用：权限验证（登录后才能访问）
                 Authorization:localStorage.getItem('mytoken')
             },
             success:function(res){
