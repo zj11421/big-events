@@ -7,12 +7,20 @@ $(function(){
         uname:[/^[\S]{6,8}$/, '用户名必须是6-8位字符'],
         //密码必须是6位数字
         pwd:function(value,item){
-            // 形参value标书对应输入域的值
+            // 形参value表示对应输入域的值
             // item表示DOM元素
             // 验证6位数字
             var reg=/^\d{6}$/
             if(!reg.test(value)){
                 return '密码必须是6位数字'
+            }
+        },
+        // 验证确认密码和原油密码一致
+        same:function(value){
+            // 获取原始密码
+            var pwd=$('#registerForm input[type=password]').val()
+            if(pwd!==value){
+                return '两次输入的密码必须一致'
             }
         }
     })
