@@ -9,11 +9,11 @@ $(function(){
     function loadUserInfo(){
         $.ajax({
             type:'get',
-            url:'http://ajax.frontend.itheima.net/my/userinfo',
-            headers:{
-                //凡是以my开头的请求都需要携带请求头，作用：权限验证（登录后才能访问）
-                Authorization:localStorage.getItem('mytoken')
-            },
+            url:'my/userinfo',
+            // headers:{
+            //     //凡是以my开头的请求都需要携带请求头，作用：权限验证（登录后才能访问）
+            //     Authorization:localStorage.getItem('mytoken')
+            // },
             success:function(res){
                 //获取用户信息
                 // 先判断状态
@@ -49,7 +49,7 @@ $(function(){
         layer.close(index)
         // 跳转到登陆页面
         location.href='./login.html'
-    });
+        });
     })
     
 })
