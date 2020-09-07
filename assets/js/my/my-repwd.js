@@ -34,6 +34,8 @@ $(function(){
             success:function(res){
                 if(res.status===0){
                     layer.msg(res.message)
+                }else{
+                    layer.msg(res.message)
                 }
             }
         })
