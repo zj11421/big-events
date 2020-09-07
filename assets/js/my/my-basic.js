@@ -33,5 +33,17 @@ $(function(){
             // 属性名称不是username的过滤出来
             return item.name!=='username'
         })
+        //调用接口实现用户基本信息的修改
+        $.ajax({
+            type:'post',
+            url:'my/userinfo',
+            data:fd,
+            success:function(res){
+                if(res.status===0){
+                    // 修改成功，进行提示
+                    layer.msg(res.message)
+                }
+            }
+        })
     })
 })
