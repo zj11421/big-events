@@ -27,13 +27,18 @@ $(function () {
             if (info.user_pic) {
               // 存在头像数据,显示一张图片
               // 删除默认的头像
-              $('#welcome-username')
+              $('#welcome-username,#nav-username')
                 .parent()
                 .prev('div')
                 .remove()
               // 添加新的头像
-              $('#welcome-username')
+              $('#welcome-username,#nav-username')
                 .parent()
+                //父元素找到子元素
+                .find('img')
+                .remove()
+                // 退回到上一次选择的元素
+                .end()
                 .prepend('<img src="'+info.user_pic+'" alt="" />')
             } else {
               // 头像不存在，显示Div
@@ -44,6 +49,8 @@ $(function () {
       })
     }
     loadUserInfo()
+    // 把加载用户信息的方法，添加到$对象上（本质上就是jq插件）
+    $.loadUserInfo=loadUserInfo
     // 绑定退出按钮的点击事件
     $('#logout-btn').click(function () {
       layer.confirm('确认要退出吗?', {icon: 3, title:'提示'}, function(index){

@@ -51,8 +51,10 @@ $(function(){
             },
             success:function(res){
                 if(res.status===0){
-                    // 更新成功
+                    // 更新成功:更新头像并提示
                     layer.msg(res.message)
+                    // 更新头像
+                    window.parent.$.loadUserInfo()
                 }
             }
         })
